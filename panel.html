@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LOCK IN</title>
+  <link rel="stylesheet" href="panel.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div class="brand-mark">L<span>.</span></div>
+      <div><div class="brand">LOCK IN</div><div class="subtitle">FOCUS COMPANION</div></div>
+      <div class="live"><i></i> YOUR SPACE</div>
+    </header>
+
+    <section class="intro">
+      <div class="eyebrow">TODAY'S WORKSPACE</div>
+      <h1>Less scrolling.<br>More <span>shipping.</span></h1>
+      <p>One task. Full focus. Get it done.</p>
+    </section>
+
+    <section class="theme-bar" aria-label="Appearance settings">
+      <div class="theme-copy"><span class="theme-title">MAKE IT YOURS</span><span class="theme-description">Choose your focus vibe</span></div>
+      <select id="themeSelect" aria-label="Choose theme">
+        <option value="default">Default</option>
+        <option value="yourname">Your Name · Anime</option>
+        <option value="demonslayer">Demon Slayer</option>
+        <option value="naruto">Naruto</option>
+        <option value="aot">Attack on Titan</option>
+        <option value="onepiece">One Piece</option>
+        <option value="custom">Custom color</option>
+      </select>
+      <label id="customColorWrap" class="color-wrap" title="Choose your accent color" hidden>
+        <input id="customAccent" type="color" value="#c5f36a" aria-label="Custom accent color">
+      </label>
+    </section>
+
+    <section id="animeScene" class="anime-scene" aria-label="Animated anime theme artwork" hidden>
+      <div class="scene-copy">
+        <span id="sceneEyebrow" class="scene-eyebrow">YOUR NAME · TWILIGHT</span>
+        <strong id="sceneTitle">Chase the moment.</strong>
+        <span id="sceneCaption">A little sky, a little magic.</span>
+      </div>
+      <div class="scene-particles" aria-hidden="true"><i>✦</i><i>✧</i><i>✦</i><i>✧</i><i>✦</i></div>
+      <div id="sceneCharacters" class="scene-characters" aria-hidden="true">
+        <img id="sceneCharacter" class="scene-character" src="art/yourname-duo.webp" alt="" />
+        <img id="sceneCharacterSecond" class="scene-character scene-character-second" src="art/yourname-duo.webp" alt="" />
+      </div>
+    </section>
+
+    <section class="panel focus-panel">
+      <div class="section-line"><span class="section-label">FOCUS TIMER</span><span id="timerStatus" class="status">READY WHEN YOU ARE</span></div>
+      <div id="timer" class="timer">25:00</div>
+      <div class="timer-track"><div id="timerProgress" class="timer-progress"></div></div>
+      <div class="durations" aria-label="Focus duration presets">
+        <button data-min="25" class="active" type="button">25 MIN</button>
+        <button data-min="50" type="button">50 MIN</button>
+        <button data-min="5" type="button">5 MIN</button>
+      </div>
+      <form id="customTimeForm" class="custom-time">
+        <span class="custom-label">CUSTOM</span>
+        <label><input id="customHours" type="number" min="0" max="12" value="0" aria-label="Hours"> <span>hr</span></label>
+        <label><input id="customMinutes" type="number" min="0" max="59" value="30" aria-label="Minutes"> <span>min</span></label>
+        <button type="submit">Set time</button>
+      </form>
+      <div class="timer-actions">
+        <button id="startTimer" class="btn-primary" type="button">Start focus <span>↗</span></button>
+        <button id="resetTimer" class="btn-secondary" type="button" aria-label="Reset timer">↺</button>
+      </div>
+      <p class="hint">Timer keeps running while you switch tabs.</p>
+    </section>
+
+    <section class="panel tasks-panel">
+      <div class="section-line"><span class="section-label">TASK QUEUE</span><span id="taskCount" class="count">0 / 0 COMPLETE</span></div>
+      <form id="taskForm" class="add-row">
+        <input id="taskInput" maxlength="120" placeholder="What needs your focus?" aria-label="New task" required>
+        <button class="add-btn" type="submit" aria-label="Add task">+</button>
+      </form>
+      <div id="taskList" class="task-list"></div>
+      <div class="task-footer"><span id="remainingText">No tasks queued</span><button id="clearDone" type="button">CLEAR DONE</button></div>
+    </section>
+
+    <section class="stats-grid">
+      <div class="stat panel"><span class="stat-label">COMPLETED TASKS</span><strong id="completedNum">0</strong><span class="stat-foot">small wins add up</span></div>
+      <div class="stat panel"><span class="stat-label">FOCUS MINUTES</span><strong id="focusNum">0<span class="unit">m</span></strong><span class="stat-foot">time well spent</span></div>
+    </section>
+    <footer><span class="footer-dot"></span> BUILT FOR THE WORK THAT MATTERS <span class="version">LOCK IN / 1.1</span></footer>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  </main>
+  <script src="panel.js"></script>
+</body>
+</html>
